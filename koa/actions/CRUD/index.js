@@ -1,16 +1,14 @@
 /*
 * @Author: sebb
 * @Date:   2017-03-16 22:25:34
-* @Last Modified by:   sebb
-* @Last Modified time: 2018-10-18 21:59:57
+* @Last Modified by:   Kasper Sebb' brandt
+* @Last Modified time: 2018-10-19 20:19:34
 */
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 module.exports = function(ModelName, config = {}) {
   return async function (ctx) {
-    console.log(ctx)
-
     const Model = ctx.orm()[ModelName];
     const query = ctx.request.query;
     
