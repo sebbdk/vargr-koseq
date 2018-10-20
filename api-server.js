@@ -2,7 +2,7 @@
 * @Author: Kasper Sebb' brandt
 * @Date:   2018-09-30 00:45:39
 * @Last Modified by:   Kasper Sebb' brandt
-* @Last Modified time: 2018-10-18 22:07:20
+* @Last Modified time: 2018-10-20 19:29:36
 */
 const koa = require('koa');
 const Router = require('koa-router');
@@ -37,6 +37,7 @@ app.use(orm.middleware)
   config.routerHook && await config.routerHook(router);
 
   app
+    .use(cors())
     .use(compress({
       filter: function (content_type) {
         return /json/i.test(content_type)
@@ -45,7 +46,6 @@ app.use(orm.middleware)
       flush: require('zlib').Z_SYNC_FLUSH
     }))
     .use(convert(bodyParser()))
-    .use(cors())
     .use(router.routes())
     .use(router.allowedMethods())
     .listen(config.port || 9999);
