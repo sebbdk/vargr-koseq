@@ -11,7 +11,7 @@ module.exports = function(ModelName, config = {}) {
   return async function (ctx) {
     const Model = ctx.orm()[ModelName];
     const query = ctx.request.query;
-    
+
     let order = [
       query.orderBy || undefined,
       query.order || 'ASC'
@@ -48,7 +48,7 @@ module.exports = function(ModelName, config = {}) {
 
     options.where = [
       ...options.where,
-      ...where 
+      ...where
     ];
 
     const results = await Model.findAll(options);
