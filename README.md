@@ -30,7 +30,7 @@ const dbConfig = {
 };
 
 APIServer({
-  // Posts/Comments is reference to the table name being 'posts' and 'comments' small case.
+  // Posts/Comments is reference to the model file name being 'posts' and 'comments' small case.
   routerHook: async function(router) {
     addAllActions(router, 'Posts');
     addAllActions(router, 'Comments');
@@ -43,6 +43,37 @@ APIServer({
     cert:  fs.readFileSync('server.crt')
   }
 });
+```
 
-TaskProcessor();
+# Model definition example, basically just a method that returns a standard sequalize model definiton.
+```
+const Sequelize = require('sequelize');
+
+module.exports = function(sequelize) {
+  let model = sequelize.define('Messages', {
+    id: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV1,
+      primaryKey: true
+    },
+    content: { type: Sequelize.TEXT() },
+    type: { type: Sequelize.STRING(128) },
+    created: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW
+    },
+  }, {
+    tableName: 'posts',
+    timestamps: false,
+    underscored: true
+  });
+
+  model.beforeValidate((row, options) => {
+    if (!row.created) {
+      row.created = new Date();
+    }
+  });
+
+  return model;
+};
 ```
