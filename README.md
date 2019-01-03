@@ -1,7 +1,5 @@
 # vargr-koseq
-Koa and Sequalize CRUD actions for prototyping
-
-A simple CRUD app that uses koa and sequalize to interact with sql databases.
+A simple CRUD app that uses Koa and Sequalize to interact with a sql databases.
 
 This has no safety measures build in, so it is not' recommended for anything in production currently.
 
