@@ -13,6 +13,7 @@ const { join } = require('path');
 const APIServer = require('vargr/api-server');
 const addAllActions = require('vargr/koa/actions/CRUD/all');
 
+// See the sequalize docs for more information on what can be configured
 const dbConfig = {
   name: 'demo',
   modelPath: join(__dirname, '../models'), // Path to folder where model definitions can be found
@@ -46,7 +47,9 @@ APIServer({
 });
 ```
 
-## Model definition example, basically just a method that returns a standard sequalize model definiton.
+## Model definition example
+This is basically just a method that get's the sequalize instance and returns a model definition.
+Refer to the sequalize docs for more information on this.
 ```
 const Sequelize = require('sequelize');
 
