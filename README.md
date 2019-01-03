@@ -5,7 +5,7 @@ A simple CRUD app that uses koa and sequalize to interact with sql databases.
 
 This has no safety measures build in, for authentication
 
-`
+```
 const ORM = require('koa-orm');
 const fs = require('fs');
 const { join } = require('path');
@@ -45,4 +45,4 @@ APIServer({
 });
 
 TaskProcessor();
-`
+```
