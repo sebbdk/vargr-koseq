@@ -5,6 +5,7 @@ A simple CRUD app that uses koa and sequalize to interact with sql databases.
 
 This has no safety measures build in, for authentication
 
+## Usage example
 ```
 const ORM = require('koa-orm');
 const fs = require('fs');
@@ -45,7 +46,7 @@ APIServer({
 });
 ```
 
-# Model definition example, basically just a method that returns a standard sequalize model definiton.
+## Model definition example, basically just a method that returns a standard sequalize model definiton.
 ```
 const Sequelize = require('sequelize');
 
