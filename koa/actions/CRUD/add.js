@@ -8,7 +8,7 @@
 module.exports = function(ModelName) {
   return async function (ctx) {
     const Model = ctx.orm()[ModelName];
-    
+
     const results = await Model.create(ctx.request.fields, {
       include: [{ all: true }]
     }).catch(function (err) {
